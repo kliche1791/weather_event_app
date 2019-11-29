@@ -6,7 +6,7 @@ $(document).ready(function () {
     
     var eventLocation = $("#locationBox").val();
     var eventQueryURL = "https://api.eventful.com/json/events/search?location=" + eventLocation + "&page_size=10&date=today&app_key=ZQ6TgSgf8HWBSqw3";
-  
+    $("#eventBox").empty();
     console.log(eventQueryURL);
     $.ajax({
       url: eventQueryURL,

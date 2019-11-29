@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+  var input = document.getElementById('locationBox');
+  var autocomplete = new google.maps.places.Autocomplete(input, {types: ["(cities)"]});
   $(function () {
     $(".date").datepicker();
   });
@@ -10,6 +11,7 @@ $(document).ready(function () {
   $("#search").click(function (event) {
     event.preventDefault();
     var city = $("#locationBox").val().trim();
+    $("#locationBox").val("");
     $.ajax({
       url: weatherQueryURL + "&city=" + city,
       method: "GET"
