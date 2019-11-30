@@ -24,7 +24,7 @@
     <!-- Calendar -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    
     <!-- Places Autocomplete -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZujaHryzdXWS14tRcvOsp5NzRvoQAT4E&libraries=places"></script>
 
@@ -115,32 +115,33 @@
             <div id="eventBox" class="container eventListContainer">
 
                 <div class="row" id="heading1">
-                    <div class="listPageTitle col-sm-12">Check Out All The Events!</div>
+                    <div id="listPageTitle" class="listPageTitle col-sm-12"></div>
                 </div>
+                <!-- EVENT CARD LOADER ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
+            <div id="eventLoader" class="container">   
+              <div class="row" id="detail1">
+                  <div class="eventCard container">
+                    <div class="row">
+                      <div id="eventName" class="loaderBox1 graydient col-md-3 col-sm-3 col-xs-2"></div>
+                    </div>
+                    <div class="row">
+                      <div id="eventAddress" class="loaderBox2 graydient col-md-6 col-sm-6 col-xs-3"></div>
+                    </div>
+                    <div class="row">
+                    <div id="eventURL" class="loaderBox3 graydient col-md-4 col-sm-4 col-xs-3"></div>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <!-- Events load here: -->
+                <div id="eventList" class="container">
+                  <div id="api-test"></div>
+              </div>
                 
-                <div class="row" id="detail1">
-                    <div class="eventCard container">
-                      <div class="row">
-                        <div id="eventName" class="eventName col-sm">Event Name</div>
-                        <div id="eventDate" class="eventDate col-sm">Date</div>
-                      </div>
-                      <div class="row">
-                        <div id="eventAddress" class="eventAddress col-sm">Address</div>
-                        <div id="eventVenue" class="eventVenue col-sm">Venu Type</div>
-                      </div>
-                      <div class="row">
-                      <div id="eventURL" class="eventURL col-sm">Go to Event Website</div>
-                      </div>
-                  </div>
-                </div>
             </div>
 
             <!-- FOR CARLOS' TESTING ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
-            <div class="container">
-                <div id="api-test">
-
-                </div>
-            </div>
+            
         </div>
     </div>
 
