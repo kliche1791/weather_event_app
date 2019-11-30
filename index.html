@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <!-- FONT AWESOME ICONS -->
+    <!-- FONT AWESOME ICONS. -->
     <script src="https://kit.fontawesome.com/ead9e1b81c.js" crossorigin="anonymous"></script>
 
     <!-- jQUERY -->
@@ -24,9 +24,6 @@
     <!-- Calendar -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!-- Places Autocomplete -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZujaHryzdXWS14tRcvOsp5NzRvoQAT4E&libraries=places"></script>
 
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
@@ -46,66 +43,103 @@
 </head>
 
 <body>
-    <div id="wrapperOutter" class="wrapperOutter container">
-        <div id="wrapperInner" class="wrapperInner">
+    <div id="wrapper" class="wrapper">
 
             <!-- SEARCH FORM ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
-            <div id="searchFormContainer">
+            <div id="searchFormContainer" class="searchFormContainer-Outter">
+
+              <div class="searchFormContainer-Inner">
                 <form>
-                    <div class="form-group">
-                        <div class="formIcon"><i class="fas fa-glass-cheers"></i></div>
-                        <label class="titleText" for="locationBox">Where are you heading?</label>
-                        <div id="searchBar" class="searchBar">
-                            <input type="text" class="form-control textSearchBox" id="locationBox"
-                                placeholder="Enter City, Country">
-                            <button type="button" class="btn" id="search"><i
-                                    class="fas fa-search searchButton"></i></button>
+                    <div class="form-group container">
+                        <!-- <div class="formIcon"><i class="fas fa-glass-cheers"></i></div> We can use this if we want an icon later-->
+                        <div class="row">
+                          <div class="col-md-12 titleText">
+                            <label for="locationBox">Where are you heading?</label>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div id="searchBar" class="searchBar">
+                                <input type="text" class="form-control textSearchBox" id="locationBox"
+                                    placeholder="Enter City, Country">
+                                <button type="button" class="btn" id="search"><i
+                                        class="fas fa-search searchButton"></i></button>
+                            </div>
+                          </div>
+
                         </div>
                     </div>
                 </form>
 
-                <!-- DATE PICKER - I commented this out for now!-->
+                <!-- DATE PICKER -->
+                <div id="datePickerContainer" class="form-group container datePickerContainer">
                 <form>
-                    <div class="row"> When are you planning your trip?
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control date" id="fromDate" placeholder="From"></div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control date" id="toDate" placeholder="To"></div>
+                    <div class="row">
+                      <div class="col-md-3">
+                      </div>
+                      <div class="col-md-3">
+                        <input type="text" class="form-control date" id="fromDate" placeholder="From">
+                      </div>
+                      <div class="col-md-3">
+                          <input type="text" class="form-control date" id="toDate" placeholder="To">
+                      </div>
+                      <div class="col-md-3"></div>
+                      </div>
                     </div>
                 </form>
-
-            </div>
-
+ 
 
             <!-- WEATHER DISPLAY ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
-            <div class="container" id="weatherBox">
-                <div class="row" id = "weatherRow">
-                    <div class="col-md-2">
-                        <div class="weekDay"></div>
-                        <div class="city"></div>
-                        <div class="temp"></div>
-                        <div class="wind"></div>
+            <div class="weatherBoxTint">
+              <div id="weatherBox" class="container form-group weatherBoxContainer">
+                    <div class="row" id = "weatherRow">
+                        <div class="col-md-2">
+                            <div class="weekDay"></div>
+                            <div class="city"></div>
+                            <div class="temp"></div>
+                            <div class="wind"></div>
+                        </div>
                     </div>
-                    <div class="col-md-1">
-                        <div class = "icon"></div>
-                    </div>
+                </div>
+              </div>  
+
+            </div>
+          </div>
+        </div>
+
+            <!-- EVENT LIST ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
+            <div id="eventBox" class="container eventListContainer">
+
+                <div class="row" id="heading1">
+                    <div class="listPageTitle col-sm-12">Check Out All The Events!</div>
+                </div>
+                
+                <div class="row" id="detail1">
+                    <div class="eventCard container">
+                      <div class="row">
+                        <div id="eventName" class="eventName col-sm">Event Name</div>
+                        <div id="eventDate" class="eventDate col-sm">Date</div>
+                      </div>
+                      <div class="row">
+                        <div id="eventAddress" class="eventAddress col-sm">Address</div>
+                        <div id="eventVenue" class="eventVenue col-sm">Venu Type</div>
+                      </div>
+                      <div class="row">
+                      <div id="eventURL" class="eventURL col-sm">Go to Event Website</div>
+                      </div>
+                  </div>
                 </div>
             </div>
 
-            <!-- EVENT LIST ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
-            <div id="eventBox" class="container">
+            <!-- FOR CARLOS' TESTING ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
+            <div class="container">
+                <div id="api-test">
 
-             <div class="row" id="heading1">
-                    <div class="col-sm-12">Check Out All The Events!</div>
                 </div>
-                <div class="row" id="detail1">
-                    <div class="col-sm">Event</div>
-                    <div class="col-sm">Date of the Event</div>
-                    <div class="col-sm">Address of The Event</div>
-                    <div class="col-sm">Venue of The Event</div>
-                    <div class="col-sm">Price of the Event</div>
-                </div>
-            </div> 
+            </div>
+        </div>
+    </div>
 
 
 </body>
