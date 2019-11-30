@@ -247,6 +247,40 @@ color: white;
 
 
 
+
+/** ** ** FOOTER ** ** **/
+.footer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: #222;
+  padding-top: 2.5em;
+  padding-bottom: 3em;
+}
+
+.innerFooter{
+  font-family: 'Montserrat', sans-serif;
+  width: 80%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #aaa;
+}
+
+.innerFooter p {
+  font-size: 1.2em;
+}
+
+.innerFooter a {
+  color: #aaa;
+}
+
+.footerNavTab-btn:hover {
+  color: white;
+}
+
+
+
 @media only screen and (max-width: 1000px) {
   .eventCard{
     width: 80%;
