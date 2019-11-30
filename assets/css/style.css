@@ -13,6 +13,10 @@ html {
   vertical-align: baseline;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 /* BOOTSTRAP OVER-RIDES */
 .container {
   margin: 0;
@@ -189,6 +193,7 @@ color: white;
   font-size: 1.2em;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 1em;
   background-color: white;
   -webkit-box-shadow: 6px 6px 15px 0px rgba(50, 50, 50, 0.23);
   -moz-box-shadow:    6px 6px 15px 0px rgba(50, 50, 50, 0.23);
@@ -208,4 +213,9 @@ color: white;
   border-top: solid 1px #ddd;
   text-align: center;
   padding: 1em;
+  color: #333;
+}
+
+.eventURL:hover{
+  background-color: #eee;
 }

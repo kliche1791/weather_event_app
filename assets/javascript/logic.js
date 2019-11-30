@@ -11,7 +11,7 @@ $(document).ready(function () {
   $("#search").click(function (event) {
     event.preventDefault();
     var city = $("#locationBox").val().trim();
-    $("#locationBox").val("");
+    $("#locationBox").val(city);
     $.ajax({
       url: weatherQueryURL + "&city=" + city,
       method: "GET"

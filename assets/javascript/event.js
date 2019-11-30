@@ -31,35 +31,36 @@ $(document).ready(function () {
           event.addClass("eventCard card cardT");
 
           var card = $("<div>");
-          card.addClass("card-header");
-          var n = i + 1;
-          card.text("EVENT # " + n);
+          // card.addClass("card-header");
+          // var n = i + 1;
+          // card.text("EVENT # " + n);
 
           event.append(card);
           var eventNames = $("<h5>");
           eventNames.addClass("eventName");
-          eventNames.append("TITLE: " + response.events.event[i].title);
+          eventNames.append(response.events.event[i].title);
 
           var eventAddr = $("<h5>");
           eventAddr.addClass("eventAddress");
-          eventAddr.append("Address: " + response.events.event[i].venue_address);
+          eventAddr.append(response.events.event[i].venue_address);
           eventAddr.append(", " + response.events.event[i].city_name);
           eventAddr.append(", " + response.events.event[i].region_abbr);
 
 
           var dateTime = $("<h5>");
           dateTime.addClass("eventDate");
-          dateTime.append("Start Time: " + response.events.event[i].start_time);
-          dateTime.append(", Finish Time: " + response.events.event[i].stop_time);
+          dateTime.append(response.events.event[i].start_time);
+          dateTime.append(" - "+ response.events.event[i].stop_time);
 
           var nameVenue = $("<h5>");
           nameVenue.addClass("eventVenue");
-          nameVenue.append("Name of the Venue: " + response.events.event[i].venue_name);
+          nameVenue.append(response.events.event[i].venue_name);
 
           var urlEvent = $("<a>");
           urlEvent.attr("href", response.events.event[i].url);
+          urlEvent.attr( `target`, `_blank`);
           urlEvent.addClass("eventURL");
-          urlEvent.append("URL: " + response.events.event[i].url);
+          urlEvent.append("See event website");
 
           event.append(eventNames, eventAddr, dateTime, nameVenue, urlEvent);
 
