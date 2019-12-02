@@ -11,7 +11,7 @@ $(document).ready(function () {
   $("#search").click(function (event) {
     event.preventDefault();
     var city = $("#locationBox").val().trim();
-    $("#locationBox").val("");
+    $("#locationBox").val(city);
     $.ajax({
       url: weatherQueryURL + "&city=" + city,
       method: "GET"
@@ -28,6 +28,7 @@ $(document).ready(function () {
     var searchFormContainerEl = document.getElementById("searchFormContainer");
     var weatherDisplayLockupEL = $("#weatherBox");
     var eventListContainerEL = $("#eventBox");
+    var eventLoader = $("#eventLoader");
 
     // ========== Current Weather Retrieving ========== ========== //
     function currentWeather(response) {
@@ -81,6 +82,8 @@ $(document).ready(function () {
   function loadingScreenDOM() {
     $("#weatherBox").hide();
     $("#eventBox").hide();
+    $("#eventLoader").hide();
+
   }
   loadingScreenDOM();
 

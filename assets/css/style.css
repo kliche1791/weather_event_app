@@ -13,6 +13,10 @@ html {
   vertical-align: baseline;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 /* BOOTSTRAP OVER-RIDES */
 .container {
   margin: 0;
@@ -22,46 +26,40 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: #222;
+  background-color: white;
 }
 
-.wrapperOutter {
-  margin-top: 2em;
+.searchFormContainer-Outter {
   margin-left: auto;
   margin-right: auto;
-  max-width: 60em;
-  height: 90%;  
+  width: 100%;
   background-image: url("../images/background.jpg");
   background-size:     cover;                    
   background-repeat:   no-repeat;
   background-position: center center;   
-  border-radius: 3em;
-  -webkit-box-shadow: 6px 6px 15px 0px rgba(0, 0, 0, 0.60);
-  -moz-box-shadow:    6px 6px 15px 0px rgba(0, 0, 0, 0.60);
-  box-shadow:         6px 6px 15px 0px rgba(0, 0, 0, 0.60);
 }
 
-.wrapperInner{
-  position: relative;
-  border-radius: 3em;
-  width: 100%;
-  height: 100%;
-  background: rgba(113,0,133,1);
-  background: -moz-linear-gradient(-45deg, rgba(113,0,133,1) 0%, rgba(189,72,173,0.77) 67%, rgba(86,0,133,0.66) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(113,0,133,1)), color-stop(67%, rgba(189,72,173,0.77)), color-stop(100%, rgba(86,0,133,0.66)));
-  background: -webkit-linear-gradient(-45deg, rgba(113,0,133,1) 0%, rgba(189,72,173,0.77) 67%, rgba(86,0,133,0.66) 100%);
-  background: -o-linear-gradient(-45deg, rgba(113,0,133,1) 0%, rgba(189,72,173,0.77) 67%, rgba(86,0,133,0.66) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(113,0,133,1) 0%, rgba(189,72,173,0.77) 67%, rgba(86,0,133,0.66) 100%);
-  background: linear-gradient(135deg, rgba(113,0,133,1) 0%, rgba(189,72,173,0.77) 67%, rgba(86,0,133,0.66) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#710085', endColorstr='#560085', GradientType=1 );
-
-
-}
 
 
 /* ***** ***** ***** ***** ***** SEARCH FORM ***** ***** ***** ***** ***** ***** */
+.searchFormContainer-Inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(129,28,62,1);
+  background: -moz-linear-gradient(-45deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(129,28,62,1)), color-stop(24%, rgba(181,38,57,0.85)), color-stop(47%, rgba(214,74,61,0.7)), color-stop(62%, rgba(235,97,63,0.78)), color-stop(100%, rgba(153,33,59,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
+  background: linear-gradient(135deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#811c3e', endColorstr='#99213b', GradientType=1 );
+}
+
 .form-group{
-  padding: 8%;
+  padding: 1em;
 }
 
 .formIcon {
@@ -70,9 +68,17 @@ color: white;
 }
 .titleText{
   color: white;
-  font-size: 8em;
+  font-size: 5em;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  text-align: center;
+  padding-bottom: 1em;
+  padding-top: 3em;
+}
+
+.form-group{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .searchBar{
@@ -116,22 +122,169 @@ color: white;
   border: 2px #ddd solid;
 }
 
-#weatherRow{
-  border: solid black;
+.datePickerContainer{
+  padding-bottom: 8em;
 }
-#eventListContainer {
-    border: black solid;
-    background-color: #E7F4E3;
+
+/* ***** ***** ***** ***** ***** WEATHER BOX ***** ***** ***** ***** ***** ***** */
+.weatherBoxTint{
+  background-color: rgba(50, 50, 50, 0.40);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-#detail1 {
-    font-family: American Typewriter, serif; 
-    padding-top: 15px;
-    padding-bottom:15px;
-    font-size: 20px;
-    font-weight: bolder;
-    
+.weatherBoxContainer {
+  color: white;
 }
-.col-sm {
-    border-bottom: solid black;
-    text-align: center;
+
+
+.givenDatesWeatherRow {
+  background-color: red;
+}
+
+
+
+/* ***** ***** ***** ***** ***** EVENT LIST ***** ***** ***** ***** ***** ***** */
+
+.eventListContainer{
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1em 1em 3em 1em;
+}
+
+.listPageTitle{
+  font-size: 3em;
+  text-align: center;
+  padding: 1em;
+}
+
+.eventCard{
+  width: 60%;
+  padding: 1.5em 1.5em 0 1.5em;
+  font-size: 1.2em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1em;
+  background-color: white;
+  border: 0;
+  -webkit-box-shadow: 4px 4px 10px 0px rgba(30, 30, 30, 0.1);
+  -moz-box-shadow:    4px 4px 10px 0px rgba(30, 30, 30, 0.1);
+  box-shadow:         4px 4px 10px 0px rgba(30, 30, 30, 0.1);
+}
+
+.eventCard:hover{
+  -webkit-box-shadow: 6px 6px 15px 0px rgba(50, 50, 50, 0.23);
+  -moz-box-shadow:    6px 6px 15px 0px rgba(50, 50, 50, 0.23);
+  box-shadow:         6px 6px 15px 0px rgba(50, 50, 50, 0.23);
+}
+
+.eventName {
+  font-size: 1.8em;
+}
+
+.eventAddress .eventVenue {
+  margin-bottom: .75em;
+  background-color: red;
+}
+
+.eventURL{
+  border-top: solid 1px #ddd;
+  text-align: center;
+  padding: 1em;
+  color: #333;
+}
+
+.eventURL:hover{
+  background-color: #eee;
+}
+
+/** ** EVENT LIST LOADER ** **/
+
+
+.graydient {
+  margin-left: 1.5em;
+  margin-bottom: .7em;
+  border-radius: .2em;
+  height: 1.5em;
+  
+  background: linear-gradient(158deg, #b4b4b4, #dfdfdf);
+  background-size: 400% 400%;
+  
+  -webkit-animation: graydient-animation 2s ease infinite;
+  -moz-animation: graydient-animation 2s ease infinite;
+  animation: graydient-animation 2s ease infinite;
+}
+  
+  @-webkit-keyframes graydient-animation {
+      0%{background-position:0% 49%}
+      50%{background-position:100% 52%}
+      100%{background-position:0% 49%}
+  }
+  @-moz-keyframes graydient-animation {
+      0%{background-position:0% 49%}
+      50%{background-position:100% 52%}
+      100%{background-position:0% 49%}
+  }
+  @keyframes graydient-animation {
+      0%{background-position:0% 49%}
+      50%{background-position:100% 52%}
+      100%{background-position:0% 49%}
+  }
+
+.loaderBox1 {
+ height: 1.8em; 
+}
+
+.loaderBox3{
+  margin-bottom: 2.5em;
+}
+
+
+
+
+/** ** ** FOOTER ** ** **/
+.footer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: #222;
+  padding-top: 2.5em;
+  padding-bottom: 3em;
+}
+
+.innerFooter{
+  font-family: 'Montserrat', sans-serif;
+  width: 80%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #aaa;
+}
+
+.innerFooter p {
+  font-size: 1.2em;
+}
+
+.innerFooter a {
+  color: #aaa;
+}
+
+.footerNavTab-btn:hover {
+  color: white;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .eventCard{
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .eventCard{
+    width: 100%;
+  }
 }
