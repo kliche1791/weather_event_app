@@ -1,25 +1,78 @@
 $(document).ready(function() {
+
   $("#search").on("click", function() {
 
+    event.preventDefault();
+
     var eventLocation = $("#locationBox").val();
+
     console.log(eventLocation);
-    var eventQueryURL = "https://api.eventful.com/json/events/search?...&location="+eventLocation+"&page_size=10&date=today&app_key=ZQ6TgSgf8HWBSqw3";
+
+    var fromDateR = $("#fromDate").val();
+    var toDateM = $("#toDate").val();
+
+  
+    
+    console.log(fromDateR); 
+    console.log(toDateM);
+
+    if(fromDateR === "" && toDateM === ""){
+
+    var eventQueryURL = "https://api.eventful.com/json/events/search?...&location="+eventLocation+"&page_size=20&date=today&app_key=ZQ6TgSgf8HWBSqw3";
+   
+    } else {
+
+    fromDateB = fromDateR.split("/");
+    yrB = fromDateB[2];
+    mnB = fromDateB[0];
+    dayB = fromDateB[1];
+
+    beginDate = yrB+mnB+dayB+"00";
+    console.log(beginDate);
+
+    toDateF = toDateM.split("/");
+    yrF = toDateF[2];
+    mnF = toDateF[0];
+    dayF = toDateF[1];
+
+    finishDate = yrF+mnF+dayF+"00";
+    console.log(finishDate);
+
+ 
+    var eventQueryURL = "https://api.eventful.com/json/events/search?...&location="+eventLocation+"&page_size=10&date=" + beginDate+"-"+finishDate + "&c=music&app_key=ZQ6TgSgf8HWBSqw3";
+    }
     $("#eventBox").empty();
+
+    $("#listPageTitle").html(`Finding events in ${eventLocation}`);
+
+    $("#eventLoader").show();
+
+    $("#eventList").empty();
+
+    
+
+
     console.log(eventQueryURL);
     $.ajax({
+      
       url: eventQueryURL,
       method: "GET",
       crossDomain: true,
       dataType: "jsonp"
 
-
     }).then(function (response) {
+
       console.log(response);
+
+     
+
       theEvents(response);
+
       //var parsed = JSON.parse(response);
       //console.log(response.total_items);
       //console.log(eventQueryURL);
-      $("#locationBox").html("<h1>" + response.events.event[0].country_name + "</h1>");
+      //$("#locationBox").html("<h1>" + response.events.event[0].country_name + "</h1>");
+      $("#eventLoader").hide();
      
       function theEvents(response) {
         for (var i = 0; i < response.page_size; i++) {
@@ -61,10 +114,13 @@ $(document).ready(function() {
 
           event.append(eventNames, eventAddr, dateTime, nameVenue, urlEvent);
 
-          $("#eventBox").append(event);
+          $("#eventList").append(event);
+          $("#listPageTitle").html(`Checkout events in ${eventLocation}`);
         };
       }
     });
+
+    
 
 
   });
