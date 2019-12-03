@@ -27,12 +27,12 @@ $(document).ready(function() {
           var event = $("<div>");
           event.addClass("eventCard card cardT");
 
-          var card = $("<div>");
+          //var card = $("<div>");
           // card.addClass("card-header");
           // var n = i + 1;
           // card.text("EVENT # " + n);
 
-          event.append(card);
+          //event.append(card);
           var eventNames = $("<h5>");
           eventNames.addClass("eventName");
           eventNames.append(response.events.event[i].title);
