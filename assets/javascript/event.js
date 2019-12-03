@@ -2,12 +2,14 @@ $(document).ready(function () {
 
 
   $("#search").on("click", function () {
+
     event.preventDefault();
-    
     var eventLocation = $("#locationBox").val();
     var eventQueryURL = "https://api.eventful.com/json/events/search?location=" + eventLocation + "&page_size=10&date=today&app_key=ZQ6TgSgf8HWBSqw3";
     console.log(eventLocation);
-    $("#eventBox").empty();
+    $("#listPageTitle").html(`Finding events in ${eventLocation}`);
+    $("#eventLoader").show();
+    $("#eventList").empty();
     console.log(eventQueryURL);
     $.ajax({
       url: eventQueryURL,
@@ -23,6 +25,7 @@ $(document).ready(function () {
       //console.log(response.total_items);
       //console.log(eventQueryURL);
       $("#locationBox").html("<h1>" + response.events.event[0].country_name + "</h1>");
+      $("#eventLoader").hide();
      
       function theEvents(response) {
         for (var i = 0; i < response.page_size; i++) {
@@ -64,7 +67,8 @@ $(document).ready(function () {
 
           event.append(eventNames, eventAddr, dateTime, nameVenue, urlEvent);
 
-          $("#eventBox").append(event);
+          $("#eventList").append(event);
+          $("#listPageTitle").html(`Checkout events in ${eventLocation}`);
         };
       }
     });
