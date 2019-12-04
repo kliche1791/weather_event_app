@@ -39,7 +39,7 @@ $(document).ready(function() {
     console.log(finishDate);
 
  
-    var eventQueryURL = "https://api.eventful.com/json/events/search?...&location="+eventLocation+"&page_size=10&date=" + beginDate+"-"+finishDate + "&c=music&app_key=ZQ6TgSgf8HWBSqw3";
+    var eventQueryURL = "https://api.eventful.com/json/events/search?...&location="+eventLocation+"&page_size=20&date=" + beginDate+"-"+finishDate + "&c=music&c=sport&app_key=ZQ6TgSgf8HWBSqw3";
     }
     $("#eventBox").empty();
 
