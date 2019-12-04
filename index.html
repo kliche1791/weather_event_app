@@ -17,10 +17,6 @@
     <!-- Moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
-
     <!-- Calendar -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -126,7 +122,7 @@
                     <div id="listPageTitle" class="listPageTitle col-sm-12"></div>
                 </div>
                 <!-- EVENT CARD LOADER ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
-            <div id="eventLoader" class="container">   
+            <div id="eventLoader" class="container eventListContainer">   
               <div class="row" id="detail1">
                   <div class="eventCard container">
                     <div class="row">
@@ -142,7 +138,7 @@
               </div>
           </div>
           <!-- Events load here: -->
-                <div id="eventList" class="container">
+                <div id="eventList" class="container eventListContainer">
                   <div id="api-test"></div>
               </div>
                 

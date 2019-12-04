@@ -75,7 +75,7 @@ $(document).ready(function() {
       $("#eventLoader").hide();
      
       function theEvents(response) {
-        for (var i = 0; i < response.page_size; i++) {
+        for (var i = 0; i < response.events.event.length; i++) {
 
           var event = $("<div>");
           event.addClass("eventCard card cardT");
