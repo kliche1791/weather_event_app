@@ -48,6 +48,8 @@ body {
   height: 100%;
   margin-right: auto;
   margin-left: auto;
+  z-index: 1;
+ 
   background: rgba(129,28,62,1);
   background: -moz-linear-gradient(-45deg, rgba(129,28,62,1) 0%, rgba(181,38,57,0.85) 24%, rgba(214,74,61,0.7) 47%, rgba(235,97,63,0.78) 62%, rgba(153,33,59,1) 100%);
   background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(129,28,62,1)), color-stop(24%, rgba(181,38,57,0.85)), color-stop(47%, rgba(214,74,61,0.7)), color-stop(62%, rgba(235,97,63,0.78)), color-stop(100%, rgba(153,33,59,1)));
@@ -133,6 +135,7 @@ color: white;
   margin: 0;
   padding: 0;
 }
+
 .weatherBoxContainer {
   color: white;
 }
@@ -142,11 +145,10 @@ color: white;
   background-color: red;
 }
 
-.givenDateWeatherBox{
-  /* background-color: blue;
-  border: solid orange 2px; */
+.col-center {
+  float: none;
+  margin: 0 auto;
 }
-
 
 /* ***** ***** ***** ***** ***** EVENT LIST ***** ***** ***** ***** ***** ***** */
 
@@ -278,9 +280,36 @@ color: white;
 .footerNavTab-btn:hover {
   color: white;
 }
-
-
-
+#currentWeatherBox {
+  float: right;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+img {
+  height: 70px;
+  width: 70px;
+}
+.col-lg-6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: white;
+}
+.icon {
+  display: center;
+  padding: 20px;
+  width: 100px;
+  height:100px;
+  
+}
+#theImage {
+  margin-right: 60px;
+}
+.dayData {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: white;
+}
 @media only screen and (max-width: 1000px) {
   .eventCard{
     width: 80%;

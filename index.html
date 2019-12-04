@@ -48,6 +48,22 @@
 <body>
     <div id="wrapper" class="wrapper">
 
+        <div id="currentWeatherBox">
+            <div class="container weatherBoxContainer">
+              <div class="row" id = "weatherRow">
+                <div class="col-md-2" id = "theImage">
+                  <div class="icon"></div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="weekDay"></div>
+                  <div class="city"></div>
+                  <div class="temp"></div>
+                  <div class="wind"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <!-- SEARCH FORM ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
             <div id="searchFormContainer" class="searchFormContainer-Outter">
 
@@ -95,19 +111,8 @@
 
             <!-- WEATHER DISPLAY ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -->
             <div class="weatherBoxTint">
-              <div id="weatherBox" class="container form-group weatherBoxContainer">
-                    <div class="row" id = "weatherRow">
-                        <div class="col-md-2">
-                            <div class="weekDay"></div>
-                            <div class="city"></div>
-                            <div class="temp"></div>
-                            <div class="wind"></div>
-                        </div>
-                    </div>
-                </div>
-              </div>  
-
-            </div>
+          <div id="weatherBox" class="container form-group weatherBoxContainer"></div>
+        </div>
           </div>
         </div>
 
