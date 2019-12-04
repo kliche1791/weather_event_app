@@ -68,12 +68,13 @@ $(document).ready(function () {
         }
       }
       // Only display this message if weatherbox has no children and both dates are valid 
-      if ($("#weatherBox").children().length == 0 && fromDate.isValid() && toDate.isValid()) {
-        var row = $("<div class='row'>");
-        var col = $("<div class='col-md-12'>").appendTo(row);
-        $("<div id='noForecastMsg'>Sorry, no forecast is available for the selected dates</div>").appendTo(col);
-        row.appendTo($("#weatherBox"));
-      }
+     
+  if (mainRow.children().length == 0 && fromDate.isValid() && toDate.isValid()) {
+    //var row = $("<div class='row'>");
+    var col = $("<div class='col-md-12'>").appendTo(mainRow);
+    $("<div id='noForecastMsg'>Sorry, no forecast is available for the selected dates</div>").appendTo(col);
+  }
+
     }
 
     // ========== SEARCH RESULTS ========== ========== ========== ========== ========== //
