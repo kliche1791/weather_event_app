@@ -1,6 +1,34 @@
 $(document).ready(function () {
   var input = document.getElementById('locationBox');
   var autocomplete = new google.maps.places.Autocomplete(input, {types: ["(cities)"]});
+  autocomplete.addListener('place_changed', function() {
+      place = autocomplete.getPlace();  
+      
+      var location = $("#locationBox").val();
+      // Remove all spaces in string
+      location = location.replace(/\s/g, '');
+      // Split on commas
+      split = location.split(',');
+      // Pop off the country
+      split.pop();
+      
+      // Get the country code from google data
+      var country;
+      var addrComponents = place['address_components'];
+      for (i=0; i<addrComponents.length; i++) {
+        if (addrComponents[i]['types'].indexOf('country') != -1) {
+          country = addrComponents[i]['short_name'];
+        }
+      }
+
+      // Push new contry
+      split.push(country);
+      // Join the city and state back into a string
+      location = split.join(', ');
+      // Put it back in the box
+      $("#locationBox").val(location);
+
+  });
   $(function () {
     $(".date").datepicker();
   });
@@ -11,9 +39,19 @@ $(document).ready(function () {
   $("#search").click(function (event) {
     event.preventDefault();
     var city = $("#locationBox").val().trim();
+
     $("#locationBox").val(city);
+    // Remove all spaces in string
+    city = city.replace(/\s/g, '');
+    // Split on commas
+    split = city.split(',');
+    // Remove the last element (country) from array
+    country = split.pop();
+    // Join the city and state back into a string
+    city = split.join(',')
+
     $.ajax({
-      url: weatherQueryURL + "&city=" + city,
+      url: weatherQueryURL + "&city=" + city + "&country=" + country,
       method: "GET"
     }).then(function (response) {
       console.log(response);
