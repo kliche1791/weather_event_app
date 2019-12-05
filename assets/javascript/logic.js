@@ -1,33 +1,25 @@
 $(document).ready(function () {
+  // Set up the google places autocomplete
   var input = document.getElementById('locationBox');
   var autocomplete = new google.maps.places.Autocomplete(input, {types: ["(cities)"]});
+  
+  // Whenever the place changes, get the city name and country code
+  // from the place object and save them as data to the #locationBox.
   autocomplete.addListener('place_changed', function() {
       place = autocomplete.getPlace();  
-      
-      var location = $("#locationBox").val();
-      // Remove all spaces in string
-      location = location.replace(/\s/g, '');
-      // Split on commas
-      split = location.split(',');
-      // Pop off the country
-      split.pop();
-      
-      // Get the country code from google data
-      var country;
+      var city = null;
+      var country = null;
       var addrComponents = place['address_components'];
       for (i=0; i<addrComponents.length; i++) {
-        if (addrComponents[i]['types'].indexOf('country') != -1) {
+        if (addrComponents[i]['types'].indexOf('locality') != -1) {
+          city = addrComponents[i]['long_name'];
+        }
+        else if (addrComponents[i]['types'].indexOf('country') != -1) {
           country = addrComponents[i]['short_name'];
         }
       }
-
-      // Push new contry
-      split.push(country);
-      // Join the city and state back into a string
-      location = split.join(', ');
-      // Put it back in the box
-      $("#locationBox").val(location);
-
+      $("#locationBox").data("city", city);
+      $("#locationBox").data("country", country);
   });
   $(function () {
     $(".date").datepicker();
@@ -38,17 +30,11 @@ $(document).ready(function () {
 
   $("#search").click(function (event) {
     event.preventDefault();
-    var city = $("#locationBox").val().trim();
 
-    $("#locationBox").val(city);
-    // Remove all spaces in string
-    city = city.replace(/\s/g, '');
-    // Split on commas
-    split = city.split(',');
-    // Remove the last element (country) from array
-    country = split.pop();
-    // Join the city and state back into a string
-    city = split.join(',')
+    // Get the city and country from the data elements that we saved to the #locationBox.
+    // The weather api is very particular, and requires a country code to produce correct results.
+    var city = $("#locationBox").data("city");
+    var country = $("#locationBox").data("country");
 
     $.ajax({
       url: weatherQueryURL + "&city=" + city + "&country=" + country,
